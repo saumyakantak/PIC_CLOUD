@@ -1,0 +1,31 @@
+SETUP
+
+go to settings
+go to data sources
+add a data source
+select type mysql
+enter host, database name, user ans password
+SAVE it
+***********************************************************************************************************************************
+***********************************************************************************************************************************
+CRETE NEW DASHBOARD
+
+select table
+go to its EDIT from PANEL TITLE
+select data source
+use FORMAT AS: table
+use query: SELECT * FROM tempdata1;
+
+select graph
+go to its EDIT from PANEL TITLE
+use FORMAT AS: time series
+***********************************************************************************************************************************
+***********************************************************************************************************************************
+Graph code
+
+SELECT 
+	UNIX_TIMESTAMP(lastupdated) as time_sec,
+	datavalue as Temperature
+FROM tempdata1
+WHERE $__timeFilter(lastupdated) and datatype='temperature'
+ORDER BY lastupdated ASC

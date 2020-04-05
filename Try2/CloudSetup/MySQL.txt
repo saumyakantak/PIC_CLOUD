@@ -1,0 +1,50 @@
+After installation of SQL on server and new user formation(user: remoteuser, pass:user1234@)
+
+For root access type: sudo su
+to get mysql access : mysql
+to check users: select users from mysql.user;
+to create database: create database iotdb;
+to show database: show databases;
+for new user to access(first exit from root access): mysql -u remoteuser -p
+to enter into database: use iotdb
+for table description desc tempdata1;
+
+***********************************************************************************************************************************
+***********************************************************************************************************************************
+To Create Table in a data base
+
+     CREATE TABLE `iotdata` 
+     (
+	`recid` INT(11) NOT NULL AUTO_INCREMENT,
+	`deplid` TINYTEXT NULL,
+	`groupid` TINYTEXT NOT NULL,
+	`deviceid` TINYTEXT NULL,
+	`subid` TINYTEXT NULL,
+	`datatype` TINYTEXT NULL,
+	`datavalue` DOUBLE NULL DEFAULT NULL,
+	`comment` TINYTEXT NULL,
+	`lastupdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`recid`)
+     )
+     COLLATE='latin1_swedish_ci'
+     ENGINE=InnoDB
+     ROW_FORMAT=DYNAMIC
+     AUTO_INCREMENT=1;
+***********************************************************************************************************************************
+***********************************************************************************************************************************
+Used for tempdata project
+
+ CREATE TABLE `tempdata1` 
+     (
+	`recid` INT(11) NOT NULL AUTO_INCREMENT,
+	`datatype` TINYTEXT NULL,
+	`datavalue` DOUBLE NULL DEFAULT NULL,
+	`lastupdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`recid`)
+     )
+     COLLATE='latin1_swedish_ci'
+     ENGINE=InnoDB
+     ROW_FORMAT=DYNAMIC
+     AUTO_INCREMENT=1;
+***********************************************************************************************************************************
+***********************************************************************************************************************************
